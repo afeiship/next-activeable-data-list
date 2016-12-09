@@ -1,38 +1,60 @@
 <template>
-  <button class="vue-toast" v-on:click="_click()" :type="type">
-    <i>ICON</i>
-    <slot></slot>
-  </button>
+  <transition name="mint-toast-pop">
+    <div
+      :class="['mint-toast',cssClass]"
+      v-show="visible"
+      :style="{ 'padding': iconClass === '' ? '10px' : '20px' }">
+      <i class="mint-toast-icon" :class="iconClass" v-if="iconClass !== ''"></i>
+      <span class="mint-toast-text" :style="{ 'padding-top': iconClass === '' ? '0' : '10px' }">{{ message }}</span>
+    </div>
+  </transition>
 </template>
 
-<script>
+<style lang="sass">
+  @import "./style.scss"
+</style>
+
+<script type="text/babel">
   export default {
-    name: 'vue-toast',
-    props:{
-      type:{
-        type:String,
-        default:'vue-toast'
+    props: {
+      message: String,
+      className: {
+        type: String,
+        default: ''
+      },
+      position: {
+        type: String,
+        default: 'middle'
+      },
+      iconClass: {
+        type: String,
+        default: ''
       }
     },
-    methods:{
-      _click:function(){
-        alert('Hello YO VUE!');
+
+    data() {
+      return {
+        visible: false
+      };
+    },
+
+    computed: {
+      cssClass() {
+        var classes = [];
+        switch (this.position) {
+          case 'top':
+            classes.push('is-placetop');
+            break;
+          case 'bottom':
+            classes.push('is-placebottom');
+            break;
+          default:
+            classes.push('is-placemiddle');
+        }
+        classes.push(this.className);
+
+        return classes.join(' ');
       }
     }
   };
 </script>
-
-<style lang="scss">
-  .vue-toast{
-    border:none;
-    background: #999;
-    padding:10px;
-    font-size: 12px;
-    color:#333;
-    border-radius: 4px;
-    i{
-      color:#00f;
-      font-size: 8px;
-    }
-  }
-</style>
