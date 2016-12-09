@@ -19,8 +19,8 @@ new Vue({
   methods:{
     _click(){
       VueToast({
-          message: '提示信息',
-          position: 'bottom'
+        message: '操作成功',
+        iconClass: 'ion ion-ios-checkmark'
         });
     }
   },
