@@ -41,7 +41,9 @@ const items = [
   "item8",
   "item9",
 ];
+
 const list = new NxActiveableDataList();
+
 list.next();    // 1
 list.next();    // 2
 list.prev();    // 1
