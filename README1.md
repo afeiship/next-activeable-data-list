@@ -14,12 +14,12 @@ npm install -S @jswork/next-activeable-data-list
 ## apis
 | api | params | description   |
 |-----|--------|---------------|
-| get | -      | desc balabala |
-| to | -      | desc balabala |
-| next | -      | desc balabala |
-| prev | -      | desc balabala |
-| first | -      | desc balabala |
-| last | -      | desc balabala |
+| get | -      | Get current active item. |
+| to | -      | Go to the input index. |
+| next | -      | Go to next index. |
+| prev | -      | Go to previous index. |
+| first | -      | Go to first index. |
+| last | -      | Go to last index. |
 
 ## options
 ```js
@@ -44,6 +44,8 @@ const items = [
 const list = new NxActiveableDataList();
 list.next();    // 1
 list.next();    // 2
+list.prev();    // 1
+list.prev();    // 0
 ```
 
 ## license
