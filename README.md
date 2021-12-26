@@ -23,7 +23,7 @@ npm install -S @jswork/next-activeable-data-list
 
 ## options
 ```js
-{activeIndex: 0, continuous: false}
+{ activeIndex: 0, continuous: false }
 ```
 
 ## usage
